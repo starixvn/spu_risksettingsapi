@@ -1,0 +1,9 @@
+/src/Fanex.NAP.SPU.RiskSettingAPI.JobService/bin/
+/src/Fanex.NAP.SPU.RiskSettingAPI.JobService/obj/
+/src/Fanex.NAP.SPU.RiskSettingAPI/obj/
+/test/Fanex.NAP.SPU.RiskSettingAPI.Test/bin/
+/test/Fanex.NAP.SPU.RiskSettingAPI.Test/obj/
+/src/Fanex.NAP.SPU.RiskSettingAPI/bin/
+bin/
+obj/
+/.vs/*
