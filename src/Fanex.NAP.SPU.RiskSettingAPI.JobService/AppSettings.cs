@@ -1,5 +1,7 @@
 ﻿namespace Fanex.NAP.SPU.RiskSettingAPI.JobService
 {
+    using Microsoft.Extensions.Configuration;
+    using System;
     using System.ComponentModel;
 
     public interface IAppSettings
@@ -9,6 +11,8 @@
         string EvironmentName { get; }
 
         string SPName { get; }
+
+        string SentryDsn { get; }
     }
 
     public class AppSettings : IAppSettings
@@ -22,6 +26,8 @@
 
         public AppSettings(IConfiguration configuration)
         {
+            this.configuration = configuration;
+
             environment = GetValue<string>(nameof(Environment));
             evironmentName = GetValue<string>(nameof(Environment));
             spName = GetValue<string>(nameof(SPName));
@@ -45,7 +51,7 @@
                     case "UAT":
                         return 3;
 
-                    case "KL":
+                    case "KLDR":
                         return 4;
 
                     case "PROD":

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Functions>
+  <Function name="PeakHourSpread">
+    <Setting Key="Dot_Member_CustomerClassPeakHourDiff" SpName="Dot_Member_CustomerClassPeakHourDiff" DbName="DBCust.CustDB.wsv_nap" />
+    <Setting Key="Dot_Member_CustomerClassPeakHourRange" SpName="Dot_Member_CustomerClassPeakHourRange" DbName="DBCust.CustDB.wsv_nap" />   
+  </Function>
+</Functions>
