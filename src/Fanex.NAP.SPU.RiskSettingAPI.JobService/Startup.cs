@@ -37,10 +37,9 @@
 
             services.RegisterService();
 
-            RegisterLogging(appSettings);
+            services.AddFanexLogSentry(Configuration);
 
             FanexDataConfig(appSettings);
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,18 +70,16 @@
             });
         }
 
-        private void RegisterLogging(IAppSettings appSettings)
-        {
-            //LogManager
-            //    .SetDefaultLogCategory("")
-            //    .Use(new List<ILogEngine>
-            //    {
-            //         new SentryLogging(new SentryEngineOptions {
-            //            Dsn = appSettings.SentryDsn,
-            //            Environment = "DEV"
-            //         })
-            //    });
-        }
+        //private void RegisterLogging(IAppSettings appSettings)
+        //{
+        //    LogManager.SetDefaultLogCategory("")
+        //     .Use([
+        //        new SentryLogging(new SentryEngineOptions
+        //        {
+        //            Dsn = appSettings.SentryDsn
+        //        })
+        //     ]);
+        //}
 
         private void FanexDataConfig(IAppSettings appSettings)
         {

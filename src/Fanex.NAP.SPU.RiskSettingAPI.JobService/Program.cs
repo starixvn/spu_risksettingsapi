@@ -1,12 +1,9 @@
-//var builder = WebApplication.CreateBuilder(args);
-//var app = builder.Build();
-
-//app.MapGet("/", () => "Hello World!");
-
-//app.Run();
-
 namespace Fanex.NAP.SPU.RiskSettingAPI.JobService
 {
+    using Fanex.Logging;
+    using Fanex.Logging.Extensions.Database;
+    using Fanex.Logging.Extensions;
+
     public static class Program
     {
         public static void Main(string[] args)
@@ -14,14 +11,18 @@ namespace Fanex.NAP.SPU.RiskSettingAPI.JobService
             try
             {
                 var host = CreateHostBuilder(args).Build();
-
-                //SentrySdk.CaptureMessage(string.Format("{0} has been started at {1}", typeof(Program).FullName, DateTime.Now));
-
+                
                 host.Run();
             }
             catch (Exception ex)
             {
-               // SentrySdk.CaptureException(ex);
+                //var logMessage = new LogMessage(ex.Message)
+                //   .AddSection("Database Info", DatabaseInfoGetters.GetDbExceptionInfo(ex))
+                //   .AddSection("Server Info", CommonInfoGetters.GetServerInfo())
+                //   .AddSection("Exception Info", CommonInfoGetters.GetExceptionInfo(ex))
+                //   .ToString();
+
+                //LogService.Error(logMessage);
 
                 Console.WriteLine(ex.Message + "\n" + ex.StackTrace);
             }
@@ -54,5 +55,3 @@ namespace Fanex.NAP.SPU.RiskSettingAPI.JobService
         }
     }
 }
-
-

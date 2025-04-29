@@ -12,7 +12,9 @@
 
         string SPName { get; }
 
-        string SentryDsn { get; }
+        //string SentryDsn { get; }
+
+        bool IsTest { get; }
     }
 
     public class AppSettings : IAppSettings
@@ -22,7 +24,8 @@
         private readonly string environment;
         private readonly string evironmentName;
         private readonly string spName;
-        private readonly string sentryDsn;
+        //private readonly string sentryDsn;
+        private readonly bool isTest;
 
         public AppSettings(IConfiguration configuration)
         {
@@ -31,7 +34,8 @@
             environment = GetValue<string>(nameof(Environment));
             evironmentName = GetValue<string>(nameof(Environment));
             spName = GetValue<string>(nameof(SPName));
-            sentryDsn = GetValue<string>("Sentry:Dsn");
+            //sentryDsn = GetValue<string>("Sentry:Dsn");
+            isTest = GetValue<bool>("IsTest");
         }
 
         #region Variables
@@ -67,8 +71,9 @@
 
         public string SPName => spName;    
 
-        public string SentryDsn => sentryDsn;
-      
+        //public string SentryDsn => sentryDsn;
+
+        public bool IsTest => isTest;
 
         #endregion Variables
 

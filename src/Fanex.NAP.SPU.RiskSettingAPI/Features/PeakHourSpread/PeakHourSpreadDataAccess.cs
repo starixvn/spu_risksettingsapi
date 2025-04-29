@@ -1,18 +1,52 @@
 ﻿namespace Fanex.NAP.SPU.RiskSettingAPI.Features.PeakHourSpread
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Fanex.Data.Repository;
 
     public interface IPeakHourSpreadDataAccess
     {
+        IEnumerable<CCPeakHourRangeEntity> GetCCPeakHourRange(bool isTest);
 
+        CCSpreadPolicyModel GetCCPeakHourDiff(CCSpreadPolicyParamModel paras);
     }
 
     public class PeakHourSpreadDataAccess : IPeakHourSpreadDataAccess
     {
+        private readonly IDynamicRepository _repository;
 
+        public PeakHourSpreadDataAccess()
+        {
+            _repository = new DynamicRepository();
+        }   
+
+        public IEnumerable<CCPeakHourRangeEntity> GetCCPeakHourRange(bool isTest)
+        {
+            var criteria = new GetCCPeakHourRangeCriteria
+            {
+                IsTest = isTest
+            };
+
+            return _repository.Fetch<CCPeakHourRangeEntity>(criteria);
+        }
+
+        public CCSpreadPolicyModel GetCCPeakHourDiff(CCSpreadPolicyParamModel paras)
+        {
+            var criteria = new GetCCPeakHourDiffCriteria
+            {
+                IsTest = paras.IsTest,
+                IsLive = paras.IsLive,
+                IsLicensee = paras.IsLicensee,
+                RepUpdateTime = paras.RepUpdateTime,
+                RowNum = paras.RowNum,
+                MaxRecords = paras.MaxRecords
+            };
+
+            var (spreadPolicy, spreadPolicyDetail) = _repository.FetchMultiple<CCSpreadPolicyEntity, CCSpreadPolicyDetailEntity>(criteria);
+
+            return new CCSpreadPolicyModel
+            {
+                SpreadPolicy = spreadPolicy,
+                SpreadPolicyDetail = spreadPolicyDetail
+            };
+        }
     }
 }
