@@ -20,20 +20,20 @@
         [HttpGet("health")]
         public string CheckHealth()
         {
-            LogService.Info($"Check Health info is running at {DateTime.Now}");
-            LogService.Error($"Check Health error is running at {DateTime.Now}");
+            LogService.Info($"Check Health info is running at {DateTimeOffset.Now}");
+            LogService.Error($"Check Health error is running at {DateTimeOffset.Now}");
 
-            return JsonConvert.SerializeObject(DateTime.Now);
+            return JsonConvert.SerializeObject(DateTimeOffset.Now);
         }
 
         [HttpPost("GetCustomerClassPeakHourDiff")]
-        public async Task<CCSpreadPolicyModel> GetCustomerClassPeakHourDiff(CCSpreadPolicyParamModel paras)
+        public async Task<CCSpreadPolicyModel> GetCustomerClassPeakHourDiff([FromBody] CCSpreadPolicyParamModel paras)
         {
             return await Task.FromResult(_peakHourSpreadJobService.GetCustomerClassPeakHourDiff(paras));
         }
 
         [HttpPost("GetCustomerClassPeakHourRange")]
-        public async Task<IEnumerable<CCPeakHourRangeEntity>> GetCustomerClassPeakHourRange(bool isTest)
+        public async Task<IEnumerable<CCPeakHourRangeEntity>> GetCustomerClassPeakHourRange([FromBody] bool isTest)
         {            
             return await Task.FromResult(_peakHourSpreadJobService.GetCustomerClassPeakHourRange(isTest));
         }

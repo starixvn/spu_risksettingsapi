@@ -5,7 +5,6 @@
     using Fanex.Logging.Extensions;
     using Fanex.NAP.SPU.RiskSettingAPI.Features.PeakHourSpread;
     using System;
-    using Microsoft.AspNetCore.Mvc;
 
     public interface IPeakHourSpreadJobService
     {
@@ -25,7 +24,7 @@
             _peakHourSpreadService = peakHourSpreadService;
         }
 
-        public IEnumerable<CCPeakHourRangeEntity> GetCustomerClassPeakHourRange([FromBody] bool isTest)
+        public IEnumerable<CCPeakHourRangeEntity> GetCustomerClassPeakHourRange(bool isTest)
         {
             try
             {                             
@@ -45,7 +44,7 @@
             return Enumerable.Empty<CCPeakHourRangeEntity>();
         }
 
-        public CCSpreadPolicyModel GetCustomerClassPeakHourDiff([FromBody] CCSpreadPolicyParamModel paras)
+        public CCSpreadPolicyModel GetCustomerClassPeakHourDiff(CCSpreadPolicyParamModel paras)
         {
             try
             {              

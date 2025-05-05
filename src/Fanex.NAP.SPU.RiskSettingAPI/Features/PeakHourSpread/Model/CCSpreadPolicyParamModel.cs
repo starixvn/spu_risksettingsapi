@@ -8,7 +8,7 @@
      
         public bool IsLicensee { get; set; }
      
-        public DateTimeOffset RepUpdateTime { get; set; }
+        public DateTime RepUpdateTime { get; set; }
       
         public long RowNum { get; set; }
        
