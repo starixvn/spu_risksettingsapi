@@ -12,8 +12,6 @@
 
         string SPName { get; }
 
-        //string SentryDsn { get; }
-
         bool IsTest { get; }
     }
 
@@ -24,7 +22,6 @@
         private readonly string environment;
         private readonly string evironmentName;
         private readonly string spName;
-        //private readonly string sentryDsn;
         private readonly bool isTest;
 
         public AppSettings(IConfiguration configuration)
@@ -33,8 +30,7 @@
 
             environment = GetValue<string>(nameof(Environment));
             evironmentName = GetValue<string>(nameof(Environment));
-            spName = GetValue<string>(nameof(SPName));
-            //sentryDsn = GetValue<string>("Sentry:Dsn");
+            spName = GetValue<string>(nameof(SPName));        
             isTest = GetValue<bool>("IsTest");
         }
 
@@ -70,8 +66,6 @@
         public string EvironmentName => evironmentName;
 
         public string SPName => spName;    
-
-        //public string SentryDsn => sentryDsn;
 
         public bool IsTest => isTest;
 

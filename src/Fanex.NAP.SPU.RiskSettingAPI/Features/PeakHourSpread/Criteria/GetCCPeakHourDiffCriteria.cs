@@ -16,7 +16,7 @@
         public bool IsLicensee { get; set; }
 
         [SpParam(SqlParamName = "RepUpdateTime")]
-        public DateTime RepUpdateTime { get; set; }
+        public DateTimeOffset RepUpdateTime { get; set; }
 
         [SpParam(SqlParamName = "RowNum")]
         public long RowNum { get; set; }
