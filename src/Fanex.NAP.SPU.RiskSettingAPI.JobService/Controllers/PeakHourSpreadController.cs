@@ -28,7 +28,7 @@
 
         [HttpPost("GetCustomerClassPeakHourDiff")]
         public async Task<CCSpreadPolicyModel> GetCustomerClassPeakHourDiff([FromBody] CCSpreadPolicyParamModel paras)
-        {
+        {          
             return await Task.FromResult(_peakHourSpreadJobService.GetCustomerClassPeakHourDiff(paras));
         }
 

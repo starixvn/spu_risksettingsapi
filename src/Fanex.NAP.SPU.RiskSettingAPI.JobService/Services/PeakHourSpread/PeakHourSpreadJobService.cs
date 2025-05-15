@@ -16,12 +16,14 @@
     public class PeakHourSpreadJobService : IPeakHourSpreadJobService
     {              
         private readonly IPeakHourSpreadService _peakHourSpreadService;
+        private readonly IAppSettings _appSettings;
 
         public PeakHourSpreadJobService(     
             IAppSettings appSettings,
             IPeakHourSpreadService peakHourSpreadService)
         {                     
             _peakHourSpreadService = peakHourSpreadService;
+            _appSettings = appSettings;
         }
 
         public IEnumerable<CCPeakHourRangeEntity> GetCustomerClassPeakHourRange(bool isTest)
@@ -47,8 +49,15 @@
         public CCSpreadPolicyModel GetCustomerClassPeakHourDiff(CCSpreadPolicyParamModel paras)
         {
             try
-            {              
-                return _peakHourSpreadService.GetCCPeakHourDiff(paras);
+            {
+                var result = _peakHourSpreadService.GetCCPeakHourDiff(paras, _appSettings.IsWriteLogInfo);
+
+                if (_appSettings.IsWriteLogInfo)
+                {
+                    LogService.Info($"Get CC Peak Hour Diff - before reponse data at time: {DateTimeOffset.Now}");
+                }
+
+                return result;
             }
             catch (Exception ex)
             {

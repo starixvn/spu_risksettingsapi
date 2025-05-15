@@ -4,7 +4,7 @@
     {
         IEnumerable<CCPeakHourRangeEntity> GetCCPeakHourRange(bool isTest);
 
-        CCSpreadPolicyModel GetCCPeakHourDiff(CCSpreadPolicyParamModel paras);
+        CCSpreadPolicyModel GetCCPeakHourDiff(CCSpreadPolicyParamModel paras, bool isWriteLogInfo);
     }
 
     public class PeakHourSpreadService : IPeakHourSpreadService
@@ -21,9 +21,9 @@
             return _dataAccess.GetCCPeakHourRange(isTest);
         }
 
-        public CCSpreadPolicyModel GetCCPeakHourDiff(CCSpreadPolicyParamModel paras)
+        public CCSpreadPolicyModel GetCCPeakHourDiff(CCSpreadPolicyParamModel paras, bool isWriteLogInfo)
         {
-            return _dataAccess.GetCCPeakHourDiff(paras);
+            return _dataAccess.GetCCPeakHourDiff(paras, isWriteLogInfo);
         }
     }
 }

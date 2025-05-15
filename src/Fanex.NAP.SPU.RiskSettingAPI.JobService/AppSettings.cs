@@ -12,7 +12,7 @@
 
         string SPName { get; }
 
-        bool IsTest { get; }
+        bool IsWriteLogInfo { get; }
     }
 
     public class AppSettings : IAppSettings
@@ -22,7 +22,7 @@
         private readonly string environment;
         private readonly string evironmentName;
         private readonly string spName;
-        private readonly bool isTest;
+        private readonly bool isWriteLogInfo;
 
         public AppSettings(IConfiguration configuration)
         {
@@ -30,8 +30,8 @@
 
             environment = GetValue<string>(nameof(Environment));
             evironmentName = GetValue<string>(nameof(Environment));
-            spName = GetValue<string>(nameof(SPName));        
-            isTest = GetValue<bool>("IsTest");
+            spName = GetValue<string>(nameof(SPName));
+            isWriteLogInfo = GetValue<bool>("IsWriteLogInfo");
         }
 
         #region Variables
@@ -67,7 +67,7 @@
 
         public string SPName => spName;    
 
-        public bool IsTest => isTest;
+        public bool IsWriteLogInfo => isWriteLogInfo;
 
         #endregion Variables
 

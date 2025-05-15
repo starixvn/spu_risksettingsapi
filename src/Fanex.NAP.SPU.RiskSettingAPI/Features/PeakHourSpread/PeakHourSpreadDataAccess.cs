@@ -1,12 +1,13 @@
 ﻿namespace Fanex.NAP.SPU.RiskSettingAPI.Features.PeakHourSpread
 {
     using Fanex.Data.Repository;
+    using Fanex.Logging;
 
     public interface IPeakHourSpreadDataAccess
     {
         IEnumerable<CCPeakHourRangeEntity> GetCCPeakHourRange(bool isTest);
 
-        CCSpreadPolicyModel GetCCPeakHourDiff(CCSpreadPolicyParamModel paras);
+        CCSpreadPolicyModel GetCCPeakHourDiff(CCSpreadPolicyParamModel paras, bool isWriteLogInfo);
     }
 
     public class PeakHourSpreadDataAccess : IPeakHourSpreadDataAccess
@@ -28,8 +29,13 @@
             return _repository.Fetch<CCPeakHourRangeEntity>(criteria);
         }
 
-        public CCSpreadPolicyModel GetCCPeakHourDiff(CCSpreadPolicyParamModel paras)
+        public CCSpreadPolicyModel GetCCPeakHourDiff(CCSpreadPolicyParamModel paras, bool isWriteLogInfo)
         {
+            if (isWriteLogInfo)
+            {
+                LogService.Info($"Get CC Peak Hour Diff - before execute SP at time: {DateTimeOffset.Now}");
+            }
+
             var criteria = new GetCCPeakHourDiffCriteria
             {
                 IsTest = paras.IsTest,
@@ -42,6 +48,11 @@
 
             var (spreadPolicy, spreadPolicyDetail) = _repository.FetchMultiple<CCSpreadPolicyEntity, CCSpreadPolicyDetailEntity>(criteria);
 
+            if (isWriteLogInfo)
+            {
+                LogService.Info($"Get CC Peak Hour Diff - after execute SP at time: {DateTimeOffset.Now}");
+            }
+            
             return new CCSpreadPolicyModel
             {
                 SpreadPolicy = spreadPolicy,
