@@ -2,6 +2,7 @@
 {
     using Fanex.Data.Repository;
     using Fanex.Logging;
+    using Newtonsoft.Json;
 
     public interface IPeakHourSpreadDataAccess
     {
@@ -33,7 +34,7 @@
         {
             if (isWriteLogInfo)
             {
-                LogService.Info($"Get CC Peak Hour Diff - before execute SP at time: {DateTimeOffset.Now}");
+                LogService.Info($"Get CC Peak Hour Diff - before execute SP at time: {DateTimeOffset.Now} with paras {JsonConvert.SerializeObject(paras)}");
             }
 
             var criteria = new GetCCPeakHourDiffCriteria
@@ -50,7 +51,7 @@
 
             if (isWriteLogInfo)
             {
-                LogService.Info($"Get CC Peak Hour Diff - after execute SP at time: {DateTimeOffset.Now}");
+                LogService.Info($"Get CC Peak Hour Diff - after execute SP at time: {DateTimeOffset.Now} with paras {JsonConvert.SerializeObject(paras)}");
             }
             
             return new CCSpreadPolicyModel

@@ -5,6 +5,7 @@
     using Fanex.Logging.Extensions;
     using Fanex.NAP.SPU.RiskSettingAPI.Features.PeakHourSpread;
     using System;
+    using Newtonsoft.Json;
 
     public interface IPeakHourSpreadJobService
     {
@@ -51,12 +52,7 @@
             try
             {
                 var result = _peakHourSpreadService.GetCCPeakHourDiff(paras, _appSettings.IsWriteLogInfo);
-
-                if (_appSettings.IsWriteLogInfo)
-                {
-                    LogService.Info($"Get CC Peak Hour Diff - before reponse data at time: {DateTimeOffset.Now}");
-                }
-
+              
                 return result;
             }
             catch (Exception ex)
