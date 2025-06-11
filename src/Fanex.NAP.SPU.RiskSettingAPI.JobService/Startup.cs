@@ -70,23 +70,9 @@
       
         private void FanexDataConfig(IAppSettings appSettings)
         {
-#pragma warning disable CS8714 // The type cannot be used as type parameter in the generic type or method. Nullability of type argument doesn't match 'notnull' constraint.
-#pragma warning disable CS8621 // Nullability of reference types in return type doesn't match the target delegate (possibly because of nullability attributes).
-            var connections = Configuration
-                                  .GetSection("Connections")
-                                  .GetChildren()
-                                  .AsEnumerable()
-                                  .ToDictionary(
-                                           x => x.GetValue<string>("Name"),
-                                           y => new ConnectionConfiguration(y.GetValue<string>("Name"), y.GetValue<string>("ConnectionString"), y.GetValue<string>("ProviderName"))
-                                   );
-#pragma warning restore CS8621 // Nullability of reference types in return type doesn't match the target delegate (possibly because of nullability attributes).
-#pragma warning restore CS8714 // The type cannot be used as type parameter in the generic type or method. Nullability of type argument doesn't match 'notnull' constraint.
-
             DbSettingProviderManager
               .StartNewSession()
-              .Use(connections)
-              .WithSqlServer()
+              .WithSqlServer(Configuration)
               .UseDefaultDbSettingProvider(resourcePath: appSettings.SPName)
               .Run();
         }
