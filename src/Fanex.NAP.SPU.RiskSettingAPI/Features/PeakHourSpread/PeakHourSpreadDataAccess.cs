@@ -15,9 +15,13 @@
     {
         private readonly IDynamicRepository _repository;
 
-        public PeakHourSpreadDataAccess()
+        public PeakHourSpreadDataAccess() : this(new DynamicRepository())
         {
-            _repository = new DynamicRepository();
+        }
+
+        public PeakHourSpreadDataAccess(IDynamicRepository repository)
+        {
+            _repository = repository;
         }   
 
         public IEnumerable<CCPeakHourRangeEntity> GetCCPeakHourRange(bool isTest)
