@@ -5,7 +5,6 @@
     using Fanex.Logging.Extensions;
     using Fanex.NAP.SPU.RiskSettingAPI.Features.PeakHourSpread;
     using System;
-    using Newtonsoft.Json;
 
     public interface IPeakHourSpreadJobService
     {

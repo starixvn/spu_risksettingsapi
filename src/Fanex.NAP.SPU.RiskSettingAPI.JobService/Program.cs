@@ -44,13 +44,12 @@ namespace Fanex.NAP.SPU.RiskSettingAPI.JobService
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-#pragma warning disable S1075 // URIs should not be hardcoded
                     webBuilder.UseUrls("http://*:5000");
-#pragma warning restore S1075 // URIs should not be hardcoded
 
-                    webBuilder                  
+                    webBuilder
                     .UseStartup<Startup>();
                 });
+
         }
     }
 }

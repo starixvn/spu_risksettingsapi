@@ -5,9 +5,9 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.NAP.SPU.RiskSettingAPI", "src\Fanex.NAP.SPU.RiskSettingAPI\Fanex.NAP.SPU.RiskSettingAPI.csproj", "{5B707219-53F7-4205-996B-48414E20E57B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.NAP.SPU.RiskSettingAPI.JobService", "src\Fanex.NAP.SPU.RiskSettingAPI.JobService\Fanex.NAP.SPU.RiskSettingAPI.JobService.csproj", "{56854F86-BAA2-4DD5-98EE-DBBB7E5C7D66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.NAP.SPU.RiskSettingAPI.JobService", "src\Fanex.NAP.SPU.RiskSettingAPI.JobService\Fanex.NAP.SPU.RiskSettingAPI.JobService.csproj", "{56854F86-BAA2-4DD5-98EE-DBBB7E5C7D66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.NAP.SPU.RiskSettingAPI.Test", "test\Fanex.NAP.SPU.RiskSettingAPI.Test\Fanex.NAP.SPU.RiskSettingAPI.Test.csproj", "{5C0FFEB6-1E48-46E4-8DAF-16BF2E1D5003}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.NAP.SPU.RiskSettingAPI.Tests", "test\Fanex.NAP.SPU.RiskSettingAPI.Tests\Fanex.NAP.SPU.RiskSettingAPI.Tests.csproj", "{4A1FC99B-84CC-4CB0-AD29-A7A3016B4583}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{56854F86-BAA2-4DD5-98EE-DBBB7E5C7D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56854F86-BAA2-4DD5-98EE-DBBB7E5C7D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56854F86-BAA2-4DD5-98EE-DBBB7E5C7D66}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C0FFEB6-1E48-46E4-8DAF-16BF2E1D5003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C0FFEB6-1E48-46E4-8DAF-16BF2E1D5003}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C0FFEB6-1E48-46E4-8DAF-16BF2E1D5003}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C0FFEB6-1E48-46E4-8DAF-16BF2E1D5003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A1FC99B-84CC-4CB0-AD29-A7A3016B4583}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A1FC99B-84CC-4CB0-AD29-A7A3016B4583}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A1FC99B-84CC-4CB0-AD29-A7A3016B4583}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A1FC99B-84CC-4CB0-AD29-A7A3016B4583}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
