@@ -17,7 +17,7 @@
             _peakHourSpreadJobService = peakHourSpreadJobService;
         }
 
-        [HttpGet("health")]
+        [HttpGet("healthz")]
         public string CheckHealth()
         {
             LogService.Info($"Check Health info is running at {DateTimeOffset.Now}");

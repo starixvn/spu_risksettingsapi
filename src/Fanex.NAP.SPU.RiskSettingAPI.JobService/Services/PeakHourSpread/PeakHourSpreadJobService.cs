@@ -29,8 +29,8 @@
         public IEnumerable<CCPeakHourRangeEntity> GetCustomerClassPeakHourRange(bool isTest)
         {
             try
-            {                             
-                return _peakHourSpreadService.GetCCPeakHourRange(isTest);                
+            {
+                //return _peakHourSpreadService.GetCCPeakHourRange(isTest);
             }
             catch (Exception ex)
             {
@@ -50,9 +50,9 @@
         {
             try
             {
-                var result = _peakHourSpreadService.GetCCPeakHourDiff(paras, _appSettings.IsWriteLogInfo);
+                //var result = _peakHourSpreadService.GetCCPeakHourDiff(paras, _appSettings.IsWriteLogInfo);
               
-                return result;
+                //return result;               
             }
             catch (Exception ex)
             {
